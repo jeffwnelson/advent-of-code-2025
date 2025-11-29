@@ -1,3 +1,6 @@
+## Ignore System Files
 .idea
 .DS_Store
-input*.txt
+
+## Ignore Puzzle Files
+inputs/
