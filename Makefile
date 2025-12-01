@@ -16,7 +16,7 @@ help:
 
 ## Run a day: make day01
 day%: FORCE
-	@cd day$* && go run solution.go
+	@go run ./day$*
 
 ## Create a new day: make new01
 new%: FORCE
