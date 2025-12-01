@@ -7,6 +7,9 @@
 |-------|--------|--------|
 | Day 1 | ⭐      | ⭐      |
 
+## Daily Images
+### Day 1: Secret Entrance
+![Day 1](images/day01.png)
 
 ## Usage
 ```bash
