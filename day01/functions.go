@@ -29,21 +29,3 @@ func parseInput(filename string) ([]Instruction, error) {
 
 	return instructions, nil
 }
-
-func countZerosCrossed(oldPosition, newPosition int) int {
-	count := 0
-	if oldPosition < newPosition { // Moving right
-		for pos := oldPosition + 1; pos <= newPosition; pos++ {
-			if pos%100 == 0 {
-				count++
-			}
-		}
-	} else { // Moving left
-		for pos := oldPosition - 1; pos >= newPosition; pos-- {
-			if ((pos%100)+100)%100 == 0 {
-				count++
-			}
-		}
-	}
-	return count
-}

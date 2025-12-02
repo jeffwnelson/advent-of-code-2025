@@ -29,7 +29,7 @@ func part1() int {
 		if instruction.Rotation == "L" {
 			distance = -distance
 		}
-		position = ((position+distance)%100 + 100) % 100
+		position = utils.Modulo(position+distance, 100)
 		if position == 0 {
 			password++
 		}
@@ -46,9 +46,16 @@ func part2() int {
 		if instruction.Rotation == "L" {
 			distance = -distance
 		}
-		newPosition := position + distance
-		password += countZerosCrossed(position, newPosition)
-		position = ((newPosition % 100) + 100) % 100
+		step := 1
+		if distance < 0 {
+			step = -1
+		}
+		for i := 0; i < utils.Absolute(distance); i++ {
+			position = utils.Modulo(position+step, 100)
+			if position == 0 {
+				password++
+			}
+		}
 	}
 	return password
 }

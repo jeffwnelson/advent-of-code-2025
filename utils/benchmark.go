@@ -5,8 +5,8 @@ import (
 	"time"
 )
 
-func Run(name string, fn func() int) {
+func Run(name string, function func() int) {
 	start := time.Now()
-	result := fn()
+	result := function()
 	fmt.Printf("%s: %v [%v]\n", name, result, time.Since(start))
 }
