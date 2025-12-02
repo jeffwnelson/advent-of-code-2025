@@ -42,8 +42,8 @@ func isDigitLengthEven(n int) bool {
 }
 
 func isRepeatedPatternInt(id int) bool {
-	value := fmt.Sprintf("%d", id) // Convert int to string
-	size := len(value)             // Get length of our string
+	value := fmt.Sprintf("%d", id)
+	size := len(value)
 
 	for i := 1; i <= size/2; i++ {
 		if size%i != 0 {

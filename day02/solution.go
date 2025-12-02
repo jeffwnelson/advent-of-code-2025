@@ -29,7 +29,7 @@ func part1() int {
 				break
 			}
 
-			if isDigitLengthEven(checkID) { // If the length of our id is odd, skip
+			if isDigitLengthEven(checkID) {
 				a, b := splitEven(checkID)
 
 				if a == b {
