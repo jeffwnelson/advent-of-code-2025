@@ -6,10 +6,11 @@
 | Day   | Part 1 | Part 2 |
 |-------|--------|--------|
 | Day 1 | ⭐      | ⭐      |
+| Day 2 | ⭐      | ⭐      |
 
 ## Daily Images
-### Day 1: Secret Entrance
-![Day 1](images/day01.png)
+### Day 2: Gift Shop
+![Day 2](images/day02.png)
 
 ## Usage
 ```bash
