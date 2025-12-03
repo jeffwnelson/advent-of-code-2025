@@ -7,10 +7,11 @@
 |-------|--------|--------|
 | Day 1 | ⭐      | ⭐      |
 | Day 2 | ⭐      | ⭐      |
+| Day 3 | ⭐      | ⭐      |
 
 ## Daily Images
-### Day 2: Gift Shop
-![Day 2](images/day02.png)
+### Day 3: Lobby
+![Day 3](images/day03.png)
 
 ## Usage
 ```bash
