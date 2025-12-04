@@ -23,7 +23,7 @@ new%: FORCE
 	@mkdir -p day$* inputs/day$*
 	@touch inputs/day$*/input.txt inputs/day$*/sample.txt
 	@if [ ! -f day$*/solution.go ]; then \
-		echo 'package main\n\nimport "advent-of-code-2025/utils"\n\nfunc part1() any {\n\treturn 0\n}\n\nfunc part2() any {\n\treturn 0\n}\n\nfunc main() {\n\t// TODO: parse input from ../inputs/day$*/input.txt\n\n\tutils.Run("Part 1", part1)\n\tutils.Run("Part 2", part2)\n}' > day$*/solution.go; \
+		echo 'package main\n\nimport "advent-of-code-2025/utils"\n\nfunc main() {\n\t// TODO: parse input from ../inputs/day$*/input.txt\n\n\tutils.Run("Part 1", part1)\n\tutils.Run("Part 2", part2)\n}\n\nfunc part1() int {\n\treturn 0\n}\n\nfunc part2() int {\n\treturn 0\n}' > day$*/solution.go; \
 	fi
 	@echo "Created day$*/ and inputs/day$*/"
 

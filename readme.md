@@ -8,10 +8,11 @@
 | Day 1 | ⭐      | ⭐      |
 | Day 2 | ⭐      | ⭐      |
 | Day 3 | ⭐      | ⭐      |
+| Day 4 | ⭐      | ⭐      |
 
 ## Daily Images
-### Day 3: Lobby
-![Day 3](images/day03.png)
+### Day 4: Printing Department
+![Day 4](images/day04.png)
 
 ## Usage
 ```bash

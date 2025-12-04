@@ -27,7 +27,7 @@ func parseInput(filename string) ([][]int, error) {
 }
 
 func largestJoltage(bank []int, count int) int {
-	positions := make([]int, count) // Create a new slide of size "count"
+	positions := make([]int, count) // Create a new slice of size "count"
 	startingIndex := 0              // Start at 0
 
 	for i := 0; i < count; i++ {
