@@ -5,41 +5,35 @@ import (
 )
 
 func main() {
-	grid1 = parseInput("inputs/day07/input.txt")
-	grid2 = copyGrid(grid1)
+	grid = parseInput("inputs/day07/input.txt")
 
 	utils.Run("Part 1", part1)
 	utils.Run("Part 2", part2)
 }
 
-var grid1 [][]rune
-var grid2 [][]rune
-var beams [][]int
+var grid [][]rune
+var beams [][]int // Creating a beam map to track how many beams are each location
 
 func part1() int {
+	initBeams(grid) // not used for our part1 solution
 	splitTotal := 0
-	for row := 0; row < len(grid1); row++ {
-		for col := 0; col < len(grid1[row]); col++ {
-			splitTotal += checkCell(grid1, row, col)
+	for row := 0; row < len(grid); row++ {
+		for col := 0; col < len(grid[row]); col++ {
+			splits, _ := checkCell(grid, row, col)
+			splitTotal += splits
 		}
 	}
 	return splitTotal
 }
 
 func part2() int {
-	// Initialize beams grid
-	beams = make([][]int, len(grid2))
-	for i := range beams {
-		beams[i] = make([]int, len(grid2[i]))
-	}
-
-	timelines := 1
-	for row := 0; row < len(grid2); row++ {
-		for col := 0; col < len(grid2[row]); col++ {
-			timelines += checkCellWithBeams(grid2, row, col)
+	initBeams(grid)
+	timelinesTotal := 1
+	for row := 0; row < len(grid); row++ {
+		for col := 0; col < len(grid[row]); col++ {
+			_, timelines := checkCell(grid, row, col)
+			timelinesTotal += timelines
 		}
 	}
-	return timelines
+	return timelinesTotal
 }
-
-// 3278 is too low
