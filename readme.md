@@ -10,10 +10,12 @@
 | Day 3 | ⭐      | ⭐      |
 | Day 4 | ⭐      | ⭐      |
 | Day 5 | ⭐      | ⭐      |
+| Day 6 | ⭐      | ⭐      |
+| Day 7 | ⭐      | ⭐      |
 
 ## Daily Images
-### Day 5: Cafeteria
-![Day 5](images/day05.png)
+### Day 7: Laboratories
+![Day 7](images/day07.png)
 
 ## Usage
 ```bash
