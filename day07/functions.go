@@ -17,15 +17,6 @@ func parseInput(filename string) [][]rune {
 	return grid
 }
 
-func copyGrid(grid [][]rune) [][]rune {
-	newGrid := make([][]rune, len(grid))
-	for i, row := range grid {
-		newGrid[i] = make([]rune, len(row))
-		copy(newGrid[i], row)
-	}
-	return newGrid
-}
-
 func getCell(grid [][]rune, row, col int) rune {
 	if row < 0 || row >= len(grid) || col < 0 || col >= len(grid[row]) {
 		return '.'
