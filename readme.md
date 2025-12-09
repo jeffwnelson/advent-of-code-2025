@@ -12,10 +12,11 @@
 | Day 5 | ⭐      | ⭐      |
 | Day 6 | ⭐      | ⭐      |
 | Day 7 | ⭐      | ⭐      |
+| Day 8 | ⭐      | ⭐      |
 
 ## Daily Images
-### Day 7: Laboratories
-![Day 7](images/day07.png)
+### Day 8: Playground
+![Day 8](images/day08.png)
 
 ## Usage
 ```bash

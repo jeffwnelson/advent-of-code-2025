@@ -30,7 +30,7 @@ func part1() int {
 	connectedBoxes := make(map[string]bool)
 
 	// Find our closest two points in our list (stop after maxBoxesInCircuit connections)
-	for {
+	for i := 0; i < maxBoxesInCircuit; i++ {
 		jBox1Index, jBox2Index, closestPair := closestPoints(jBoxes, connectedBoxes)
 		if jBox1Index == -1 {
 			break // No more pairs available
@@ -47,16 +47,12 @@ func part1() int {
 		jBox1Position := findjBox(jBox1, circuits)
 		jBox2Position := findjBox(jBox2, circuits)
 
-		// Start testing
 		if jBox1Position == -1 && jBox2Position == -1 { // Neither jBox is in a circuit, create new circuit
 			circuits = append(circuits, Circuit{junctionBox: []JunctionBox{jBox1, jBox2}})
-
 		} else if jBox1Position == -1 { // Only jBox1 is new, add to jBox2's circuit
 			circuits[jBox2Position].junctionBox = append(circuits[jBox2Position].junctionBox, jBox1)
-
 		} else if jBox2Position == -1 { // Only jBox2 is new, add to jBox1's circuit
 			circuits[jBox1Position].junctionBox = append(circuits[jBox1Position].junctionBox, jBox2)
-
 		} else if jBox1Position != jBox2Position { // Found Both in different circuits, merge them
 			circuits[jBox1Position].junctionBox = append(circuits[jBox1Position].junctionBox, circuits[jBox2Position].junctionBox...)
 			circuits = append(circuits[:jBox2Position], circuits[jBox2Position+1:]...)
@@ -66,12 +62,6 @@ func part1() int {
 		// Mark this pair as used
 		pairKey := fmt.Sprintf("%d,%d", jBox1Index, jBox2Index)
 		connectedBoxes[pairKey] = true
-
-		maxBoxesInCircuit--
-		if maxBoxesInCircuit <= 0 { // Check how many jBoxes are left in our circuit
-			//showClosestPairs(closestPairs)
-			break // We hit our limit, leave for loop
-		}
 	}
 
 	// Find unused jBoxes and add each as its own circuit
@@ -85,13 +75,55 @@ func part1() int {
 	// Sort circuits by size (largest to smallest)
 	sortCircuitsBySize(circuits)
 
-	//showCircuits(circuits)
-
 	// Calculate answer
 	solution := calculateCircuitSolution(circuits)
 	return solution
 }
 
 func part2() int {
-	return 0
+	var circuits []Circuit
+	connectedBoxes := make(map[string]bool)
+	var finalPair ClosestJunctionBoxes
+	test := 1
+
+	// Keep connecting until all jBoxes are in a single circuit
+	for {
+		jBox1Index, jBox2Index, closestPair := closestPoints(jBoxes, connectedBoxes)
+		if jBox1Index == -1 {
+			break // No more pairs available
+		}
+
+		jBox1 := closestPair.jBox1
+		jBox2 := closestPair.jBox2
+
+		jBox1Position := findjBox(jBox1, circuits)
+		jBox2Position := findjBox(jBox2, circuits)
+
+		if jBox1Position == -1 && jBox2Position == -1 {
+			circuits = append(circuits, Circuit{junctionBox: []JunctionBox{jBox1, jBox2}})
+		} else if jBox1Position == -1 {
+			circuits[jBox2Position].junctionBox = append(circuits[jBox2Position].junctionBox, jBox1)
+		} else if jBox2Position == -1 {
+			circuits[jBox1Position].junctionBox = append(circuits[jBox1Position].junctionBox, jBox2)
+		} else if jBox1Position != jBox2Position {
+			circuits[jBox1Position].junctionBox = append(circuits[jBox1Position].junctionBox, circuits[jBox2Position].junctionBox...)
+			circuits = append(circuits[:jBox2Position], circuits[jBox2Position+1:]...)
+		}
+
+		pairKey := fmt.Sprintf("%d,%d", jBox1Index, jBox2Index)
+		connectedBoxes[pairKey] = true
+
+		// Check if all jBoxes are now in a single circuit
+		if len(circuits) == 1 && len(circuits[0].junctionBox) == len(jBoxes) {
+			finalPair = closestPair
+			break
+		}
+
+		fmt.Printf("More circuits to add... %d\n", test)
+		test++
+	}
+
+	solution := multiplyXCoordinates(finalPair.jBox1, finalPair.jBox2)
+
+	return solution
 }

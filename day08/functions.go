@@ -107,3 +107,8 @@ func showClosestPairs(boxes []ClosestJunctionBoxes) {
 		fmt.Println(pair)
 	}
 }
+
+// multiplyXCoordinates returns the product of X coordinates from two junction boxes
+func multiplyXCoordinates(jBox1, jBox2 JunctionBox) int {
+	return jBox1.X * jBox2.X
+}
