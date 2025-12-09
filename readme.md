@@ -13,10 +13,11 @@
 | Day 6 | ⭐      | ⭐      |
 | Day 7 | ⭐      | ⭐      |
 | Day 8 | ⭐      | ⭐      |
+| Day 9 | ⭐      |        |
 
 ## Daily Images
-### Day 8: Playground
-![Day 8](images/day08.png)
+### Day 9: Movie Theater
+![Day 9](images/day09.png)
 
 ## Usage
 ```bash
