@@ -10,3 +10,8 @@ type AreaResult struct {
 	P2   Point
 	Area int
 }
+
+type Tile struct {
+	Position Point
+	Type     rune // 'R' = Red, 'G' = Green
+}
